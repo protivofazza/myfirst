@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Мой сайт{% endblock %}</title>
+    <script type="text/javascript" src="jquery.js"></script>
+       <script type="text/javascript">
+            $(document).ready(function(){
+                $('#form').submit(function(event){
+                    $.post("getajax.py",{data:$("#in1").val()},onResponse);
+                    return false;
+                })
+                function onResponse(data){
+                    $("#in2").text(data);
+                }
+            })
+        </script>
+</head>
+<body>
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>
